@@ -1,0 +1,248 @@
+<!doctype html>
+                        <html>
+                            <head>
+                                <meta charset='utf-8'>
+                                <meta name='viewport' content='width=device-width, initial-scale=1'>
+                                <title>Snippet - GoSNippets</title>
+                                
+                                <style>@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap");
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(10, 10, 10);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding-top: 30px;
+}
+
+.quiz-container {
+    color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 2px rgba(100, 100, 100, 0.1);
+    overflow: hidden;
+    width: 600px;
+    max-width: 100%;
+    background: rgb(63, 94, 251);
+    background: radial-gradient(circle, rgba(63, 94, 251, 1) 0%, rgba(252, 70, 107, 1) 100%);
+}
+
+.quiz-header {
+    padding: 4rem;
+}
+
+h2 {
+    padding: 1rem;
+    text-align: center;
+    margin: 0;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    font-size: 1.2rem;
+    margin: 1rem 0;
+}
+
+ul li label {
+    cursor: pointer;
+}
+
+button {
+    background-color: #aa84bb;
+    border: none;
+    color: white;
+    cursor: pointer;
+    display: block;
+    font-family: inherit;
+    font-size: 1.1rem;
+    width: 100%;
+    padding: 1.3rem;
+}
+
+button:hover {
+    background-color: #732d91;
+}
+
+button:focus {
+    background-color: #5e3370;
+    outline: none;
+}</style>
+                                <script type='text/javascript' src=''></script>
+                                <script type='text/javascript' src='https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js'></script>
+                                <script type='text/javascript' src=''></script>
+                            </head>
+                            <body oncontextmenu='return false' class='snippet-body'>
+                            <div class="quiz-container" id="quiz">
+    <div class="quiz-header">
+        <h2 id="question">Question text</h2>
+        <ul>
+            <li>
+                <input type="radio" id="a" name="answer" class="answer" />
+                <label id="a_text" for="a">Question</label>
+            </li>
+            <li>
+                <input type="radio" id="b" name="answer" class="answer" />
+                <label id="b_text" for="b">Question</label>
+            </li>
+            <li>
+                <input type="radio" id="c" name="answer" class="answer" />
+                <label id="c_text" for="c">Question</label>
+            </li>
+            <li>
+                <input type="radio" id="d" name="answer" class="answer" />
+                <label id="d_text" for="d">Question</label>
+            </li>
+        </ul>
+    </div>
+    <button id="submit">Submit</button>
+</div>
+                            <script type='text/javascript'>const quizData = [
+{
+question: "Who invented Java Programming?",
+a: "Guido van Rossum",
+b: "James Gosling",
+c: "Dennis Ritchie",
+d: "Bjarne Stroustrup",
+correct: "b" },
+
+{
+question: "Which statement is true about Java?",
+a: "Java is a sequence-dependent programming language",
+b: "Java is a code dependent programming language",
+c: "Java is a platform-dependent programming language",
+d: "Java is a platform-independent programming language",
+correct: "d" },
+
+{
+question: "Which component is used to compile, debug and execute the java programs?",
+a: "JRE",
+b: "JIT",
+c: "JDK",
+d: "JVM",
+correct: "c" },
+
+{
+question: " Which one of the following is not a Java feature?",
+a: "Object-oriented",
+b: "Use of pointers",
+c: "Portable",
+d: "Dynamic and Extensible",
+correct: "b" },
+
+{
+question: "Which of these cannot be used for a variable name in Java?",
+a: "identifier & keyword",
+b: "identifier",
+c: "keyword",
+d: "none of the mentioned",
+correct: "c" },
+
+{
+question: "What is the extension of java code files?",
+a: ".js",
+b: ".txt",
+c: ".class",
+d: ".java",
+
+correct: "d" },    
+
+{
+question: "Which environment variable is used to set the java path?",
+a: "MAVEN_Path",
+b: "JavaPATH",
+c: "JAVA",
+d: "JAVA_HOME",
+correct: "d" },
+
+{
+question: "Which of the following is not an OOPS concept in Java?",
+a: "Polymorphism",
+b: "Inheritance",
+c: "Compilation",
+d: "Encapsulation",
+correct: "c" },    
+
+{
+question: "What is not the use of “this” keyword in Java?",
+a: "Referring to the instance variable when a local variable has the same name",
+b: "Passing itself to the method of the same class",
+c: "Passing itself to another method",
+d: "Calling another constructor in constructor chaining",
+correct: "b" },   
+
+{
+question: "Which of the following is a type of polymorphism in Java Programming?",
+a: "Multiple polymorphism",
+b: "Compile time polymorphism",
+c: "Multilevel polymorphism",
+d: "Execution time polymorphism",
+correct:  "b"  }
+
+];
+
+const quiz = document.getElementById("quiz");
+const answerEls = document.querySelectorAll(".answer");
+const questionEl = document.getElementById("question");
+const a_text = document.getElementById("a_text");
+const b_text = document.getElementById("b_text");
+const c_text = document.getElementById("c_text");
+const d_text = document.getElementById("d_text");
+const submitBtn = document.getElementById("submit");
+
+let currentQuiz = 0;
+let score = 0;
+
+loadQuiz();
+
+function loadQuiz() {
+deselectAnswers();
+
+const currentQuizData = quizData[currentQuiz];
+
+questionEl.innerText = currentQuizData.question;
+a_text.innerText = currentQuizData.a;
+b_text.innerText = currentQuizData.b;
+c_text.innerText = currentQuizData.c;
+d_text.innerText = currentQuizData.d;
+}
+
+function getSelected() {
+let answer = undefined;
+answerEls.forEach(answerEl => {
+if (answerEl.checked) {
+answer = answerEl.id;
+}
+});
+return answer;
+}
+
+function deselectAnswers() {
+answerEls.forEach(answerEl => {
+answerEl.checked = false;
+});
+}
+
+submitBtn.addEventListener("click", () => {
+const answer = getSelected();
+if (answer) {
+if (answer === quizData[currentQuiz].correct) {
+score++;
+}
+currentQuiz++;
+if (currentQuiz < quizData.length) { loadQuiz(); } else { quiz.innerHTML=` <h2>You answered correctly at ${score}/${quizData.length} questions.</h2>
+<a href="http://127.0.0.1:8000/javaquiz">Reload</a> 
+    `;
+    }
+    }
+    });</script>
+                            </body>
+                        </html>

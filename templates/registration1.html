@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    
+    <link rel="stylesheet" type = "text/css" href = "static/css/registration.css" media = " all" />
+    
+
+</head>
+ 
+ 
+    <body>
+
+        <div class="app">
+
+        <div class="signup" v-if="!profileshow">
+
+        <h1>Sign up</h1>
+
+        <form name="reg" method="POST">
+            {% csrf_token %}
+
+            <label>User login</label><br />
+
+            <input id="login" type="login" v-model="login" name="loginname"
+
+            placeholder="login"><br />
+
+            <label>User password</label><br />
+
+            <input id="password" type="password" v-model="password" name="password"
+
+            placeholder="password"><br/>
+
+            <label>Email</label><br/>
+
+            <input id="email" type="email"  v-model="email" name="email"
+
+            placeholder="email"><br />
+
+            <label>First Name</label><br />
+
+            <input id="fname" type="text"  v-model="fname" name="fname"
+
+            placeholder="First Name"><br />
+
+            <label>Second Name</label><br />
+
+            <input id="sname" type="text" v-model="sname" name="sname"
+
+            placeholder="Second Name"> <br />
+
+            <label>Age</label><br>
+
+            <input type="number" v-model="age" name="age" ><br>
+
+            <label>Gender</label><br>
+
+            <select v-model="gender" name="gender">
+
+               <option value="men">Men</option>
+
+               <option value="women">Women</option>
+
+            </select><br>
+
+            <input type="submit" value="Submit" >
+
+        </form>
+
+        </div>
+
+        
+
+        <!-- <div class="profile" v-else> -->
+
+           <!-- <h1>Profile</h1> -->
+
+               
+
+           <!-- <h3>Welcome {{fname}} {{sname}}!</h3> -->
+
+         
+
+           <!-- <table> -->
+
+           <!-- <tr><td rowspan="10">  <img src="https://isschavliuga.ucoz.net/avatar/av/avatar2_novyj_razmer.jpg"/></td><td>login</td><td>{{login}}</td></tr> -->
+
+           <!-- <tr><td>Password</td><td> -->
+
+               
+
+           <!-- <span @click="passwordshow=!passwordshow"><span v-if="passwordshow">{{password}}</span><span v-else>hidden</span></span></td></tr> -->
+
+           <!-- <tr><td>Email</td><td>{{email}}</td></tr> -->
+
+           <!-- <tr><td>Link</td><td>{{link}}</td></tr> -->
+
+           <!-- <tr><td>Date</td><td>{{date}}</td></tr> -->
+
+           <!-- <tr><td>First name</td><td>{{fname}}</td></tr> -->
+
+           <!-- <tr><td>Second name</td><td>{{sname}}</td></tr> -->
+
+           <!-- <tr><td>Age</td><td>{{age}}</td></tr> -->
+
+           <!-- <tr><td>Gender</td><td>{{gender}}</td></tr> -->
+
+           
+
+           <!-- </table> -->
+
+        
+
+           <!-- /<h2>Publics</h2> -->
+
+           <!-- <div> -->
+
+             <!-- <div v-for="p in publics" class="public"><h4>{{p.title}}</h4> -->
+
+             <!-- <p>💓{{p.likes}} 📢{{p.reposts}}📰{{p.posts}}🙍{{p.followers}} <span><span v-if="p.follow">🔔</span><span v-else>🔕</span></span><span @click="p.follow=!p.follow">follow</span></p></div> -->
+
+           <!-- </div> -->
+
+           
+
+        <!-- </div> -->
+
+        
+
+    </body>
+
+</html>

@@ -1,0 +1,86 @@
+:root{
+    --upl-main-bg-color:transparent;
+    --upl-section-bg-color:#2f4858;
+    --upl-hover:#233232;
+  }
+  *{
+    font-family:Arial;
+    padding:0px;
+    margin:0px;
+    text-decoration:none;
+    list-style:none;
+     color:inherit;
+    
+  }
+  body{
+    color:white;
+  }
+  
+  #user-profile-wrapper{
+    background:var(--upl-main-bg-color);
+    width:20vw;
+    height:100%;
+    min-width:250px;
+  /*   display:none; */
+  }
+  #user-profile-container{
+  /*   background:green; */
+    padding:10px;
+  }
+  .user-profile-section{
+    background:var(--upl-section-bg-color);
+    display:flex;
+    padding:5px;
+    position:relative;
+    margin-bottom:1px;
+  
+  }
+  
+  .user-profile-value{
+    display:flex;
+    flex-direction:column;
+    width:100%;
+    padding-top:3px;
+  }
+  .user-logo
+  {
+  /*  background:red; */
+    font-size:40px;
+  }
+  .profile-value{
+    padding-left:5px;
+    width:190px;
+    text-overflow:ellipsis;
+    overflow:hidden;
+    white-space:nowrap;
+    text-transform:lowercase;
+  }
+  .user-profile-list-section{
+    background:var(--upl-section-bg-color);
+    padding:5px;
+    display:flex;
+    flex-direction:column;
+  }
+  .user-profile-list-item{
+    display:flex;
+    padding:10px;
+    width:100%
+    align-content:center;
+    cursor:pointer;
+  }
+  .upl-list-item-logo{
+    font-size:16px;
+    padding:0px 10px;
+  }
+  .upl-list-item-content a{
+    font-size:14px;
+    width:100%;
+  }
+  .signout-input{
+    background:inherit;
+      border:none;
+    font-size:14px;
+  }
+  .user-profile-list-item:hover{
+      background:var(--upl-hover);
+  }
